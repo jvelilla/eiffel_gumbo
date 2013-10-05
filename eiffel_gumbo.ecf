@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-11-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-11-0 http://www.eiffel.com/developers/xml/configuration-1-11-0.xsd" name="eiffel_gumbo" uuid="01C09A2E-9386-48F3-8B16-A6E043B31C25" library_target="eiffel_gumbo">
+	<target name="eiffel_gumbo">
+		<root all_classes="true"/>
+		<option warning="true">
+			<assertions precondition="true" postcondition="true" check="true" invariant="true" loop="true" supplier_precondition="true"/>
+		</option>
+		<setting name="console_application" value="true"/>
+		<library name="base" location="$ISE_LIBRARY/library/base/base-safe.ecf"/>
+				
+		<external_include location="`pkg-config --cflags gumbo`">
+			<condition>
+				<platform excluded_value="windows"/>
+			</condition>
+		</external_include>
+		<external_object location="/usr/local/lib/libgumbo.so">
+			<condition>
+				<platform excluded_value="windows"/>
+			</condition>
+		</external_object>	
+		<cluster name="eiffel_gumbo" location=".\src" recursive="true">
+			<file_rule>
+				<exclude>/EIFGENs$</exclude>
+				<exclude>/.svn$</exclude>
+				<exclude>/CVS$</exclude>
+				<exclude>/spec$</exclude>
+			</file_rule>
+		</cluster>
+	</target>
+</system>
